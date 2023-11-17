@@ -1,10 +1,9 @@
-import prismadb from '@/lib/prismadb'
 import { format } from "date-fns"
 
-import BillboardClient from './components/billboard-client'
+import prismadb from '@/lib/prismadb'
 import { formatter } from '@/lib/utils';
 import { OrdersColumn } from './components/columns';
-import OrdersClient from './components/billboard-client';
+import OrdersClient from './components/order-client';
 
 const OrdersPage = async ({ params }: {
 	params: { storeId: string }
@@ -45,4 +44,4 @@ const OrdersPage = async ({ params }: {
 	)
 }
 
-export default OrdersPage
+export default OrdersPage;
