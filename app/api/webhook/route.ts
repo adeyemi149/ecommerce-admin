@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
+import Stripe from "stripe";
 
 import { stripe } from "@/lib/stripe";
-import Stripe from "stripe";
 import { NextResponse } from "next/server";
 import prismadb from "@/lib/prismadb";
 
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
     address?.postal_code,
     address?.country,
   ];
-
+  // Combine the array above address 1, address 2, city, state, postal code into one string
   const addressString = addressComponents.filter((c) => c !== null).join(", ");
 
   if (event.type === "checkout.session.completed") {

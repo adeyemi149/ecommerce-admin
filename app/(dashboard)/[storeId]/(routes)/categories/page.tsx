@@ -3,6 +3,7 @@ import { format } from "date-fns"
 
 import BillboardClient from './components/category-client'
 import { CategoryColumn } from './[categoryId]/components/columns'
+import CategoryClient from './components/category-client'
 
 const CategoriesPage = async ({ params }: {
 	params: { storeId: string }
@@ -29,7 +30,7 @@ const CategoriesPage = async ({ params }: {
 
 	return (
 		<div className='flex-col m-4'>
-			<BillboardClient data={formattedCategories} />
+			<CategoryClient data={formattedCategories} />
 		</div>
 	)
 }

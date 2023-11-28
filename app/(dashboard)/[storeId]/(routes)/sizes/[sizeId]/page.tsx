@@ -8,7 +8,7 @@ const SizePage = async ({
 }: {
 	params: { sizeId: string }
 }) => {
-	const billboard = await prismadb.size.findUnique({
+	const size = await prismadb.size.findUnique({
 		where: {
 			id: params.sizeId
 		}
@@ -16,7 +16,7 @@ const SizePage = async ({
 	return (
 		<div className='flex-col'>
 			<div className='flex-1 space-y-4 p-8 pt-6'>
-				<SizeForm initialData={billboard} />
+				<SizeForm initialData={size} />
 			</div>
 		</div>
 	)

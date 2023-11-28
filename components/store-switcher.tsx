@@ -4,10 +4,10 @@ import { Store } from '@prisma/client'
 import { useParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import { Check, ChevronsUpDown, PlusCircle, Store as StoreIcon } from 'lucide-react'
+import { useState } from 'react'
 
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { useStoreModal } from '@/hooks/use-store-modal'
-import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from './ui/command'
@@ -31,6 +31,7 @@ export default function StoreSwitcher({ className, items = [] }: StoreSwitcherPr
 		}
 	))
 
+	// Locate the store ID within the formatted items
 	const currentStore = formattedItems.find((item) => item.value === params.storeId);
 
 	const onStoreSelect = (store: { value: string, label: string }) => {

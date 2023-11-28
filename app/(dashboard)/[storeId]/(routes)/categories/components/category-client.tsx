@@ -13,7 +13,7 @@ import ApiList from "@/components/ui/api-list"
 interface CategoryClientProps {
 	data: CategoryColumn[]
 }
-const BillboardClient: React.FC<CategoryClientProps> = ({ data }) => {
+const CategoryClient: React.FC<CategoryClientProps> = ({ data }) => {
 
 	const router = useRouter();
 	const params = useParams();
@@ -39,4 +39,4 @@ const BillboardClient: React.FC<CategoryClientProps> = ({ data }) => {
 	)
 }
 
-export default BillboardClient
+export default CategoryClient
