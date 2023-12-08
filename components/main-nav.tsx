@@ -21,27 +21,27 @@ const MainNav = ({
 		{
 			href: `/${params.storeId}/billboards`,
 			label: 'Billboards',
-			active: pathname === `/${params.storeId}/billboards`,
+			active: pathname === `/${params.storeId}/billboards` || pathname === `/${params.storeId}/billboards/new`,
 		},
 		{
 			href: `/${params.storeId}/categories`,
 			label: 'Categories',
-			active: pathname === `/${params.storeId}/categories`,
+			active: pathname === `/${params.storeId}/categories` || pathname === `/${params.storeId}/categories/new`,
 		},
 		{
 			href: `/${params.storeId}/sizes`,
 			label: 'Sizes',
-			active: pathname === `/${params.storeId}/sizes`,
+			active: pathname === `/${params.storeId}/sizes` || pathname === `/${params.storeId}/sizes/new`,
 		},
 		{
 			href: `/${params.storeId}/colors`,
 			label: 'Colors',
-			active: pathname === `/${params.storeId}/colors`,
+			active: pathname === `/${params.storeId}/colors` || pathname === `/${params.storeId}/colors/new`,
 		},
 		{
 			href: `/${params.storeId}/products`,
 			label: 'Products',
-			active: pathname === `/${params.storeId}/products`,
+			active: pathname === `/${params.storeId}/products` || pathname === `/${params.storeId}/products/new`,
 		},
 		{
 			href: `/${params.storeId}/orders`,
