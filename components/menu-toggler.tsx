@@ -63,7 +63,7 @@ const MenuToggle = () => {
 						<Menu />
 					</Button>
 				</DropdownMenuTrigger>
-				<DropdownMenuContent align="end">
+				<DropdownMenuContent align="end" className="md:hidden">
 					<DropdownMenuItem className="flex-col items-start outline-none text-sm">
 						{routes.map((route) => (
 							<Link
