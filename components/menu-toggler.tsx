@@ -1,14 +1,15 @@
 "use client"
 
+import { Menu } from "lucide-react"
+import { useParams, usePathname } from "next/navigation";
 import Link from "next/link";
-import { useParams, usePathname } from "next/navigation"
 
-import { cn } from "@/lib/utils"
+import { Button } from './ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu'
+import { cn } from "@/lib/utils";
 
-const MainNav = ({
-	className,
-	...props
-}: React.HTMLAttributes<HTMLElement>) => {
+
+const MenuToggle = () => {
 	const pathname = usePathname();
 	const params = useParams();
 
@@ -55,21 +56,31 @@ const MainNav = ({
 		}
 	]
 	return (
-		// 'cn' dynamically merges default and Tailwind classes before applying them as props
-		<nav className={cn("hidden items-center md:flex space-x-4 lg:space-x-6", className)}>
-			{routes.map((route) => (
-				<Link
-					key={route.href}
-					href={route.href}
-					className={cn("text-sm font-medium transition-colors hover:text-primary",
-						route.active ? "text-black dark:text-white" : "text-muted-foreground"
-					)}
-				>
-					{route.label}
-				</Link>
-			))}
-		</nav>
+		<div className="md:hidden">
+			<DropdownMenu>
+				<DropdownMenuTrigger asChild>
+					<Button variant="outline" size="icon">
+						<Menu />
+					</Button>
+				</DropdownMenuTrigger>
+				<DropdownMenuContent align="end">
+					<DropdownMenuItem className="flex-col items-start outline-none text-sm">
+						{routes.map((route) => (
+							<Link
+								key={route.href}
+								href={route.href}
+								className={cn("text-sm py-2 px-2 font-medium transition-colors hover:text-primary",
+									route.active ? "text-black dark:text-white" : "text-muted-foreground"
+								)}
+							>
+								{route.label}
+							</Link>
+						))}
+					</DropdownMenuItem>
+				</DropdownMenuContent>
+			</DropdownMenu>
+		</div>
 	)
 }
 
-export default MainNav
+export default MenuToggle
