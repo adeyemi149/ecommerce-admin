@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import BillboardForm from './components/billboard-form'
 import prismadb from '@/lib/prismadb'
+import Loading from './loading'
 
 const BillboardPage = async ({
 	params
