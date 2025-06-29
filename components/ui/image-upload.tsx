@@ -48,7 +48,15 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, onRemove, value, di
 			<CldUploadWidget onUpload={onUpload} uploadPreset='x6lcxgc1'>
 				{({ open }) => {
 					const onClick = () => {
-						open();
+						if (!open) {
+							console.error("Upload widget is not ready.");
+							return;
+						}
+						try {
+							open();
+						} catch (err) {
+							console.error("Error opening upload widget:", err);
+						}
 					}
 
 					return (
